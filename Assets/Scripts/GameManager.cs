@@ -2,9 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//////////////////////////////////////////////
+//Assignment/Lab/Project: Arcade Game
+//Name: Daniel Sanchez, Talyn Epting
+//Section: 2019SP.SGD.285.2144
+//Instructor: Aurore Locklear
+//Date: 10/12/2022
+/////////////////////////////////////////////
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
+
+    public bool gameStarted, paused;
+    int score;
+
+    public int Score
+    {
+        get { return score; }
+        set 
+        { 
+            score = value;
+
+            if (score < 0) { score = 0; }
+        }
+    }
 
 
     void Awake()
@@ -26,6 +48,28 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            paused = !paused;
+            PauseGame();
+        }
+    }
+
+    void PauseGame()
+    {
+        if (paused == true)
+        {
+            Time.timeScale = 0f;
+            Debug.Log("Game is paused");
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+    }
+
+    public void IncrementScore()
+    {
+        Score += 10;    //to be replaced by a value as specified per individual enemies- T.E.
     }
 }
