@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1790609435}
   speed: 3
+  boostPower: 3
   maxVelocity: 10
 --- !u!50 &4696245
 Rigidbody2D:

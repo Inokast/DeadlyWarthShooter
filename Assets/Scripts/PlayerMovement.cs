@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public Camera cam;
 
-    [SerializeField] float speed = 3;
+    [SerializeField] private float speed = 3;
+    [SerializeField] private float boostPower = 100;
 
     [SerializeField] private float maxVelocity = 3;
     //[SerializeField] private float rotationSpeed = 3;
@@ -30,8 +31,10 @@ public class PlayerMovement : MonoBehaviour
 
         ClampVelocity();
 
-        
-
+        if (Input.GetKey(KeyCode.Space)) 
+        {
+            Boost();
+        }
     }
 
     private void RotatePlayer() 
@@ -53,8 +56,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveForward(float amount) 
     {
-        //Vector2 force = transform.up * amount;
-
         Vector2 force = Vector2.up * amount * speed;
 
         rb.AddForce(force);
@@ -62,8 +63,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveSideways(float amount) 
     {
-        //Vector2 force = transform.right * amount;
         Vector2 force = Vector2.right * amount * speed;
+
+        rb.AddForce(force);
+    }
+
+    private void Boost()
+    {
+        Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
+
+        Vector2 force = direction * speed * boostPower;
 
         rb.AddForce(force);
     }
