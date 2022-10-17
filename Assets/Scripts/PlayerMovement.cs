@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public Camera cam;
 
+    [SerializeField] float speed = 3;
+
     [SerializeField] private float maxVelocity = 3;
     //[SerializeField] private float rotationSpeed = 3;
 
@@ -27,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
         RotatePlayer();
 
         ClampVelocity();
+
+        
 
     }
 
@@ -49,14 +53,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveForward(float amount) 
     {
-        Vector2 force = transform.up * amount;
+        //Vector2 force = transform.up * amount;
+
+        Vector2 force = Vector2.up * amount * speed;
 
         rb.AddForce(force);
     }
 
     private void MoveSideways(float amount) 
     {
-        Vector2 force = transform.right * amount;
+        //Vector2 force = transform.right * amount;
+        Vector2 force = Vector2.right * amount * speed;
 
         rb.AddForce(force);
     }
