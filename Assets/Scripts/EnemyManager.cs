@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Assignment: Arcade Game
+//Name: Steven Thompson
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] basicEnemy;
@@ -18,36 +19,41 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EnemySpawn();
+        //EnemySpawn();
     }
 
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        //either changing wavechecker to a coroutine or checking if wavecomplete is true, setting it to false, and starting a new wave
-        if (numEnemies <= 0)
-        {
-            waveComplete = true;
-            waveNum++;
-            maxEnemies++;
-        }
-        //else
-        //{ EnemySpawn(); }
+        StartCoroutine(WaveManager());
     }
 
     public void LevelChecker()
     {
-        if(waveNum == 5)
+        if(waveNum == 4)
         {
             levelNum++;
             waveNum = 0;
             maxEnemies = levelNum + 1;
         }
     }
-    public void WaveManager()
+    public IEnumerator WaveManager()
     {
-       
+        if (numEnemies == 0)
+        { EnemySpawn(); }
+
+        if (numEnemies <= 0)
+        {
+            Debug.Log("wave " + waveNum + " complete");
+           // waveComplete = true;
+            waveNum++;
+            maxEnemies++;
+            LevelChecker();
+            
+        }
+        
+        yield return new WaitForSeconds(5);
     }
 
     public void EnemySpawn()
