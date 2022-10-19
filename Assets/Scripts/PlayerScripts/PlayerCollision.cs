@@ -27,6 +27,7 @@ public class PlayerCollision : MonoBehaviour
 
         if(other.collider.tag == "enemy/kamikaze")
         {
+            GameManager.gm.playerHealth.DamageHealth(GameManager.gm.playerHealth._Health / 2);
             Destroy(other.collider.gameObject);
             print("Collided with kamikaze Enemy");
         }
