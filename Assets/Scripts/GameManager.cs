@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public bool gameStarted, paused;
     int score;
+    int lives;
 
     public int Score
     {
@@ -26,6 +27,17 @@ public class GameManager : MonoBehaviour
             score = value;
 
             if (score < 0) { score = 0; }
+        }
+    }
+
+    public int Lives
+    {
+        get { return lives; }
+        set 
+        { 
+            lives = value;
+
+            if(lives < 0) { lives = 0; }
         }
     }
 
