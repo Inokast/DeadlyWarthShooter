@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BasicShooter : Weapon
 {
-    public string name = "BasicShooter";
-    
+    private void Start()
+    {
+        weaponName = "BasicShooter";
+    }
+
 }
