@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 //////////////////////////////////////////////
 //Assignment/Lab/Project: Arcade Game
-//Name: Daniel Sanchez, Talyn Epting
+//Name: Daniel Sanchez, Steven Thompson, Talyn Epting
 //Section: 2019SP.SGD.285.2144
 //Instructor: Aurore Locklear
 //Date: 10/12/2022
@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public bool gameStarted, paused;
     int score;
     int lives;
+
+    public Health playerHealth;
 
     public int Score
     {
@@ -56,7 +58,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        playerHealth = new Health();
+
+        playerHealth._Health = 20;
     }
 
     void Update()

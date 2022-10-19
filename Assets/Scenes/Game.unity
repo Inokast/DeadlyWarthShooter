@@ -323,24 +323,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 64028523}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 810003313ee458348be1810120af4609, type: 3}
+  m_Script: {fileID: 11500000, guid: 44c525048669a5e47b3255f7928360c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   basicEnemy:
   - {fileID: 7845205068632434764, guid: 24585ab32b43a35458bad0bb249e574b, type: 3}
   bossEnemy: []
-  enemySpawnPoints:
-  - {fileID: 265438708}
-  - {fileID: 1766612885}
-  - {fileID: 782189220}
-  - {fileID: 1775882190}
-  - {fileID: 651907612}
-  - {fileID: 2096589950}
-  - {fileID: 999264704}
-  - {fileID: 841989213}
-  - {fileID: 646942507}
-  - {fileID: 1595086218}
-  - {fileID: 1933525706}
+  enemySpawnPoints: []
   bossSpawnPoint: []
   enemySpeed: 2
   maxEnemies: 2

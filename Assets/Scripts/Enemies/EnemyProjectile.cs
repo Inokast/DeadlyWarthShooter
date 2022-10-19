@@ -10,6 +10,7 @@ public class EnemyProjectile : MonoBehaviour
     [Header("Bolt Values")]
     [SerializeField] float boltSpeed;
     [SerializeField] float destroyTime;
+    [SerializeField] int damageAmt;
     Rigidbody2D rb;
     Transform player;
     Vector2 targetDir;
@@ -34,8 +35,9 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
+            GameManager.gm.playerHealth.DamageHealth(damageAmt);
             Destroy(gameObject);
-            Debug.Log($"Hit {player.gameObject.name}");
+            Debug.Log($"Hit {player.gameObject.name}, player's health is: {GameManager.gm.playerHealth._Health}");
         }
     }
 
