@@ -12,7 +12,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] public GameObject[] bossSpawnPoint;
     private int waveNum = 0;
     private int levelNum = 0;
-    private int numEnemies = 0;
+    public int numEnemies = 0;
     public int enemySpeed = 2;
     public int maxEnemies = 2;
     public bool waveComplete = false;

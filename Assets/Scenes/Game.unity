@@ -343,8 +343,20 @@ MonoBehaviour:
   basicEnemy:
   - {fileID: 7845205068632434764, guid: 24585ab32b43a35458bad0bb249e574b, type: 3}
   bossEnemy: []
-  enemySpawnPoints: []
+  enemySpawnPoints:
+  - {fileID: 265438708}
+  - {fileID: 1766612885}
+  - {fileID: 782189220}
+  - {fileID: 1775882190}
+  - {fileID: 651907612}
+  - {fileID: 2096589950}
+  - {fileID: 999264704}
+  - {fileID: 841989213}
+  - {fileID: 646942507}
+  - {fileID: 1595086218}
+  - {fileID: 1933525706}
   bossSpawnPoint: []
+  numEnemies: 0
   enemySpeed: 2
   maxEnemies: 2
   waveComplete: 0
@@ -4258,7 +4270,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2096589950
 GameObject:

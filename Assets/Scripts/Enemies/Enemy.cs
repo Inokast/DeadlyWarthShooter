@@ -8,6 +8,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private EnemyManager manager;
     [Header("Base Values")]
     GameObject player;
     Rigidbody2D rb;
@@ -43,7 +44,11 @@ public class Enemy : MonoBehaviour
         {
             ShootProjectile();
         }
-
+        if(enemyHealth._Health <= 0)
+        {
+            Destroy(this.gameObject);
+            manager.numEnemies--;
+        }
         Vector3 facing = player.transform.position - transform.position;
         float angle = Mathf.Atan2(facing.y, facing.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
@@ -69,6 +74,18 @@ public class Enemy : MonoBehaviour
             GameObject boltClone;
             boltClone = Instantiate(bolt, transform.position, Quaternion.identity);
             nextShot = Time.time + 1f / shotRate;
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.collider.tag=="projectile/bolt" )
+        {
+            enemyHealth._Health--;
+        }
+        if (other.collider.tag == "projectile/missile")
+        {
+            enemyHealth._Health -= 2;
         }
     }
 }
