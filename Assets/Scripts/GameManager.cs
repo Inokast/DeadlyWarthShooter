@@ -13,12 +13,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Basics")]
     public static GameManager gm;
-
     public bool gameStarted, paused;
+    bool gameOver;
     int score;
     int lives;
-
     public Health playerHealth;
 
     public int Score
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         { 
             lives = value;
 
-            if(lives < 0) { lives = 0; }
+            if (lives < 0) { lives = 0; }
         }
     }
 
@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
         playerHealth = new Health();
 
         playerHealth._Health = 20;
+        Lives = 3;
     }
 
     void Update()
@@ -70,6 +71,8 @@ public class GameManager : MonoBehaviour
             paused = !paused;
             PauseGame();
         }
+
+        HandleHealth();
     }
 
     void PauseGame()
@@ -88,5 +91,33 @@ public class GameManager : MonoBehaviour
     public void IncrementScore()
     {
         Score += 10;    //to be replaced by a value as specified per individual enemies- T.E.
+    }
+
+    public void HandleHealth()
+    {
+        if (playerHealth._Health == 0)
+        {
+            DecrementLives();
+
+            if (!gameOver)
+            {
+                playerHealth._Health = 20;
+            }
+        }
+    }
+
+    public void IncrementLives()
+    {
+        Lives++;
+    }
+
+    public void DecrementLives()
+    {
+        Lives--;
+
+        if (Lives == 0)
+        {
+            gameOver = true;
+        }
     }
 }

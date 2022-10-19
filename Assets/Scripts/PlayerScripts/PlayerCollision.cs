@@ -24,5 +24,11 @@ public class PlayerCollision : MonoBehaviour
         {
             print("Collided with Asteroid");
         }
+
+        if(other.collider.tag == "enemy/kamikaze")
+        {
+            Destroy(other.collider.gameObject);
+            print("Collided with kamikaze Enemy");
+        }
     }
 }
