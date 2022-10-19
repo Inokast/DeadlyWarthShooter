@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 {
     [Header("Menus and HUD")]
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI livesText;
     [SerializeField] GameObject menuPanel;
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject optionsPanel;
@@ -27,6 +28,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         ScoreUpdate();
+        LivesUpdate();
         DisplayPause();
     }
 
@@ -47,6 +49,14 @@ public class UIManager : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = $"Score: {GameManager.gm.Score}";
+        }
+    }
+
+    void LivesUpdate()
+    {
+        if (livesText != null)
+        {
+            livesText.text = $"Lives: {GameManager.gm.Lives}";
         }
     }
 
