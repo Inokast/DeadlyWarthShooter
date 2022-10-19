@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5242791591933604376}
   - component: {fileID: -7540609433928713156}
   m_Layer: 0
-  m_Name: bolt
-  m_TagString: projectile/bolt
+  m_Name: missile
+  m_TagString: projectile/missile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 681cc61c08974bc459d285ee24566336, type: 3}
-  m_Color: {r: 0.6792453, g: 0, b: 0.52105707, a: 1}
+  m_Color: {r: 0.061512154, g: 0.6784314, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -137,5 +137,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boltSpeed: 4
-  destroyTime: 3
-  damageAmt: 2
+  destroyTime: 6
+  damageAmt: 4

@@ -21,12 +21,19 @@ public class EnemyProjectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        ShootAtTarget();
+        if (gameObject.tag == "projectile/bolt")
+        {
+            ShootAtTarget();
+        }
     }
 
     void Update()
     {
-        //SeekTarget();
+        if(gameObject.tag == "projectile/missile")
+        {
+            SeekTarget();
+        }
+
         Destroy(gameObject, destroyTime);
     }
 

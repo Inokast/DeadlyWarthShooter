@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     [Header("Base Values")]
     GameObject player;
     Rigidbody2D rb;
+    Health enemyHealth;
     [SerializeField] float enemySpeed;
     [SerializeField] float disToPlayer = 1f;
     [SerializeField] float shootingRange;
@@ -23,6 +24,9 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        enemyHealth = new Health();
+        enemyHealth._Health = 2;
+
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         nextShot = Time.time;
