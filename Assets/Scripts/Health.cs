@@ -3,9 +3,9 @@
 
 public class Health
 {
-    int health;
+    float health;
 
-    public int _Health
+    public float _Health
     {
         get { return health; }
         set 
@@ -15,12 +15,12 @@ public class Health
         }
     }
 
-    public void DamageHealth(int amt)
+    public void DamageHealth(float amt)
     {
         _Health -= amt;
     }
 
-    public void IncreaseHealth(int amt)
+    public void IncreaseHealth(float amt)
     {
         _Health += amt;
     }
