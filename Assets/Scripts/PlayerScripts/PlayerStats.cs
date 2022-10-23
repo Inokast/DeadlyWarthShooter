@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+
+    //Health playerHealth;
     [SerializeField] private int hp;
     [SerializeField] private int hpMax = 100;
     [SerializeField] public int speed = 3;
@@ -13,7 +15,9 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hp = hpMax;
+        //playerHealth = new Health();
+        //playerHealth._Health = hp;
+        //playerHealth._healthMax = hpMax;
     }
 
     public void TakeDamage(int amount) 
@@ -37,15 +41,24 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    private void Respawn() 
+    {
+        RecoverHealth(hpMax);
+    }
+
     private void PlayerDeath() 
     {
-        //We'll talk about this
+        if (GameManager.gm.Lives > 0)
+        {
+            GameManager.gm.DecrementLives();
+            Respawn();
+        }
+
+        else 
+        {
+            GameManager.gm.GameOver();
+        }
         print("The player has died");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

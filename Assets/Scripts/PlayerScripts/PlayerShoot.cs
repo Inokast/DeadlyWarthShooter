@@ -45,9 +45,8 @@ public class PlayerShoot : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1")) 
         {
-            print("Clicl is registered");
-            //OnPlayerShoot();
-            arsenal[0].ShootWeapon();
+            OnPlayerShoot();
+            //arsenal[0].ShootWeapon();
         }
     }
 }

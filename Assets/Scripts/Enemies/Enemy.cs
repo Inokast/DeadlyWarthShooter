@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         nextShot = Time.time;
+
     }
 
     void FixedUpdate()
@@ -45,11 +46,7 @@ public class Enemy : MonoBehaviour
         {
             ShootProjectile();
         }
-        if(enemyHealth._Health <= 0)
-        {
-            Destroy(this.gameObject);
-            manager.numEnemies--;
-        }
+        // Dan Note: I felt like checking if the enemy was dead every frame was a bit much. I made TakeDamage() to check only when it has to take damage.
         Vector3 facing = player.transform.position - transform.position;
         float angle = Mathf.Atan2(facing.y, facing.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
@@ -68,6 +65,17 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void TakeDamage( float amount) 
+    {
+        enemyHealth._Health = enemyHealth._Health - amount;
+
+        if (enemyHealth._Health <= 0)
+        {
+            Destroy(this.gameObject);
+            manager.numEnemies--;
+        }
+    }
+
     void ShootProjectile()
     {
         if (Time.time > nextShot)
@@ -82,11 +90,14 @@ public class Enemy : MonoBehaviour
     {
         if(other.collider.tag=="projectile/bolt" )
         {
-            enemyHealth._Health--;
+            Destroy(other.gameObject);
+            TakeDamage(other.gameObject.GetComponent<PlayerBullet>()._bulletpower);
+            
         }
         if (other.collider.tag == "projectile/missile")
         {
-            enemyHealth._Health -= 2;
+            TakeDamage(other.gameObject.GetComponent<PlayerBullet>()._bulletpower);
+            Destroy(other.gameObject);
         }
     }
 }

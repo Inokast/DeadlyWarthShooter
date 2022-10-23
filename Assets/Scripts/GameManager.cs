@@ -120,4 +120,9 @@ public class GameManager : MonoBehaviour
             gameOver = true;
         }
     }
+
+    public void GameOver() 
+    {
+        //end game
+    }
 }

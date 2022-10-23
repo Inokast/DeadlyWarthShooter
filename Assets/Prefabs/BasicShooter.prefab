@@ -49,9 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Basic Shooter
   fireRate: 1
-  weaponSpeed: 1
+  bulletSpeed: 3
   bulletPrefab: {fileID: 5176879708802760505, guid: 1f4c51cc595bc914b87822219c7c49de, type: 3}
   firePoint: {fileID: 8303633654325522399}
+  unlocked: 1
 --- !u!1 &8303633653152202247
 GameObject:
   m_ObjectHideFlags: 0

@@ -275,11 +275,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef0c6116efe48a4ca9224117ce9ef7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
-  hpMax: 20
+  hp: 100
+  hpMax: 100
   speed: 6
-  boostPower: 100
-  maxVelocity: 3
+  boostPower: 3
+  maxVelocity: 6
 --- !u!114 &4696251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3330,8 +3330,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: BasicShooter
-  fireRate: 1
-  bulletSpeed: 10
+  fireRate: 100
+  bulletSpeed: 20
   bulletPrefab: {fileID: 5176879708802760505, guid: 1f4c51cc595bc914b87822219c7c49de, type: 3}
   firePoint: {fileID: 734306353}
   unlocked: 1
