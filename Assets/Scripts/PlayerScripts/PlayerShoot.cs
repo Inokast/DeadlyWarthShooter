@@ -4,28 +4,50 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
+    [SerializeField] private Transform[] arsenalSlot;
     public Weapon[] arsenal;
 
     // Start is called before the first frame update
+    void Start()
+    {
+        for (int i = 0; i < arsenal.Length; i++)
+        {
+            arsenal[i].transform.position = arsenalSlot[i].position;
+            arsenal[i].transform.rotation = arsenalSlot[i].rotation;
+        }
+    }
+
+
+
     private void OnPlayerShoot() 
     {
         foreach (Weapon w in arsenal)
         {
-            w.ShootWeapon();
+            if (w.unlocked == true) 
+            {
+                w.ShootWeapon();
+            }
+            
         }
     }
 
     public void PickupWeapon(string name) 
     {
-        
+        switch (name)
+        {
+            default:
+                break;
+        }
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (Input.GetMouseButton(0)) 
+        if (Input.GetButtonDown("Fire1")) 
         {
-            OnPlayerShoot();
+            print("Clicl is registered");
+            //OnPlayerShoot();
+            arsenal[0].ShootWeapon();
         }
     }
 }
