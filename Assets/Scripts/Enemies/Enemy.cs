@@ -12,8 +12,7 @@ public class Enemy : MonoBehaviour
     [Header("Base Values")]
     GameObject player;
     Rigidbody2D rb;
-    Health enemyHealth;
-    [SerializeField] int eHealthAmt;
+    [SerializeField] float eHealthAmt;
     [SerializeField] float enemySpeed;
     [SerializeField] float disToPlayer = 1f;
     [SerializeField] float shootingRange;
@@ -26,9 +25,6 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        enemyHealth = new Health();
-        enemyHealth._Health = eHealthAmt;
-
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         nextShot = Time.time;
@@ -67,9 +63,9 @@ public class Enemy : MonoBehaviour
 
     private void TakeDamage( float amount) 
     {
-        enemyHealth._Health = enemyHealth._Health - amount;
+        eHealthAmt = eHealthAmt - amount;
 
-        if (enemyHealth._Health <= 0)
+        if (eHealthAmt <= 0)
         {
             Destroy(this.gameObject);
             manager.numEnemies--;
