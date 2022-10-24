@@ -8,7 +8,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private EnemyManager manager;
+    [SerializeField] EnemyManager manager;
     [Header("Base Values")]
     GameObject player;
     Rigidbody2D rb;
@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float enemySpeed;
     [SerializeField] float disToPlayer = 1f;
     [SerializeField] float shootingRange;
+    public Transform thisObject;
 
     [Header("Shooting Values")]
     [SerializeField] GameObject bolt;
@@ -32,6 +33,8 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         nextShot = Time.time;
+
+        thisObject.parent = null;
 
     }
 

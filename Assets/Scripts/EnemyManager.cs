@@ -5,7 +5,7 @@ using UnityEngine.UI;
 //Assignment: Arcade Game
 //Name: Steven Thompson
 public class EnemyManager : MonoBehaviour
-{
+{   
     [SerializeField] private GameObject[] basicEnemy;
     [SerializeField] private GameObject[] bossEnemy;
     [SerializeField] public GameObject[] enemySpawnPoints;
@@ -40,6 +40,7 @@ public class EnemyManager : MonoBehaviour
     }
     public IEnumerator WaveManager()
     {
+        //MAKE THIS ININITE
         if (numEnemies == 0)
         { EnemySpawn(); }
 
@@ -60,6 +61,7 @@ public class EnemyManager : MonoBehaviour
     {
         for(int i = 0; i < maxEnemies; i++)
         {
+            //every level change the range of types of enemies spawning in
             Instantiate(basicEnemy[Random.Range(0, basicEnemy.Length)], enemySpawnPoints[Random.Range(0,enemySpawnPoints.Length)].transform);
             numEnemies++;
             Debug.Log("Enemy" + i + "has been spawned");

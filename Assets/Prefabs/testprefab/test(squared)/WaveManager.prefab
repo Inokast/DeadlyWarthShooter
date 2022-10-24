@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1626499763508688878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1626499763508688876}
+  - component: {fileID: 1626499763508688877}
+  m_Layer: 0
+  m_Name: WaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1626499763508688876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626499763508688878}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1626499763508688877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626499763508688878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c525048669a5e47b3255f7928360c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicEnemy:
+  - {fileID: 6091334490192070862, guid: 24a648f7873bd0741a1f1819f6f77260, type: 3}
+  - {fileID: 1420213302753666832, guid: 079ec93fc0175854397a462d1b43ac5b, type: 3}
+  - {fileID: 4545141674799189359, guid: 8e3cb96ff19de814eac3195c7d1ee7dd, type: 3}
+  bossEnemy: []
+  enemySpawnPoints:
+  - {fileID: 128718326337658598, guid: d9875849806ab6543b9ac4425fb8fe46, type: 3}
+  - {fileID: 7896868365067593594, guid: 40be0ce57a2c1ea448b71e08f10acf0e, type: 3}
+  - {fileID: 1319591458978423826, guid: b20c76387fadbcb42a659105ea5a52fb, type: 3}
+  - {fileID: 6891378081399572241, guid: 59bd67f346f928f4985640ed6b0ef1e3, type: 3}
+  - {fileID: 6885255647321319682, guid: e93d8d61ee95cd0469580eec84e2dc18, type: 3}
+  - {fileID: 2234273007472941183, guid: 4aab934e1fce0dd409a01ffc3b210672, type: 3}
+  - {fileID: 8526101756571509654, guid: 229b813999c04a84990a58dc2726d1ff, type: 3}
+  - {fileID: 1708145898835635753, guid: a79ae3456bf54c54b826521d8cdbac5c, type: 3}
+  - {fileID: 8453123758559050581, guid: e35986c0f1c9a764a93b94ab8dea7c55, type: 3}
+  - {fileID: 6696194997622883378, guid: a8048a591b9f5a740b75a99eeba2bff9, type: 3}
+  - {fileID: 6743640178563366380, guid: 0376d69a16a627d40a6f856d2ad8c20c, type: 3}
+  bossSpawnPoint: []
+  numEnemies: 0
+  enemySpeed: 2
+  maxEnemies: 2
+  waveComplete: 0
