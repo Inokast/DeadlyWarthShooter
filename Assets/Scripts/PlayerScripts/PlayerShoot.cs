@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Assignment/Lab/Project: Arcade Game
+//Name: Daniel Sanchez
+
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private Transform[] arsenalSlot;

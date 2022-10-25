@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Assignment/Lab/Project: Arcade Game
+//Name: Daniel Sanchez
+
 public class PlayerStats : MonoBehaviour
 {
 
@@ -11,6 +14,20 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] public int speed = 3;
     [SerializeField] public float boostPower = 100;
     [SerializeField] public float maxVelocity = 3;
+
+    //adding HP property for public access (in PlayerCollision) + data protection purposes- T.E.
+    public int HP
+    {
+        get { return hp; }
+        set 
+        { 
+            hp = value;
+
+            if(hp <= 0) { hp = 0; }
+            if(hp > hpMax) { hpMax = hp; }
+        }
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,20 +39,20 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int amount) 
     {
-        hp = hp - amount;
-        hp = Mathf.Clamp(hp, 0, hpMax);
+        HP = HP - amount;
+        HP = Mathf.Clamp(HP, 0, hpMax);
         CheckHealth();
     }
 
     public void RecoverHealth(int amount) 
     {
-        hp = hp + amount;
-        hp = Mathf.Clamp(hp, 0, hpMax);
+        HP = HP + amount;
+        HP = Mathf.Clamp(HP, 0, hpMax);
     }
 
     private void CheckHealth() 
     {
-        if (hp <= 0) 
+        if (HP <= 0) 
         {
             PlayerDeath();
         }

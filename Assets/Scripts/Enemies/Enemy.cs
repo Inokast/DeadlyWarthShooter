@@ -28,7 +28,6 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         nextShot = Time.time;
-
     }
 
     void FixedUpdate()
@@ -68,7 +67,7 @@ public class Enemy : MonoBehaviour
         if (eHealthAmt <= 0)
         {
             Destroy(this.gameObject);
-            manager.numEnemies--;
+            //manager.numEnemies--;
         }
     }
 
@@ -84,13 +83,15 @@ public class Enemy : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.collider.tag=="projectile/bolt" )
+        //changed tags here to "bullet" and "rocket" to avoid weird null ref exception error
+        //-- my theory is that this was checked the same way the player collision is for the same tag name, hence the error
+        if (other.collider.tag == "projectile/bullet" )
         {
             Destroy(other.gameObject);
             TakeDamage(other.gameObject.GetComponent<PlayerBullet>()._bulletpower);
             
         }
-        if (other.collider.tag == "projectile/missile")
+        if (other.collider.tag == "projectile/rocket")
         {
             TakeDamage(other.gameObject.GetComponent<PlayerBullet>()._bulletpower);
             Destroy(other.gameObject);

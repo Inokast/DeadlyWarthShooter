@@ -2,33 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Assignment/Lab/Project: Arcade Game
+//Name: Daniel Sanchez
+
 public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private PlayerStats player;
 
     // Start is called before the first frame update
-    public void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.tag == "Enemy") 
+        //changed tag names and damage method for testing- T.E.
+        if (other.collider.tag == "projectile/missile") 
         {
-            print("Collided with Enemy");
-            player.TakeDamage(1);
+            print("Collided with Enemy projectile");
+            player.TakeDamage(other.gameObject.GetComponent<EnemyProjectile>().damageAmt);
+            Destroy(other.gameObject);
         }
 
-        if (other.collider.tag == "EnemyBulletType1")
+        if (other.collider.tag == "projectile/bolt")
         {
-            print("Collided with Enemy");
+            print("Collided with Enemy projectile");
+            player.TakeDamage(other.gameObject.GetComponent<EnemyProjectile>().damageAmt);
+            Destroy(other.gameObject);
         }
 
         if (other.collider.tag == "Asteroid") 
         {
             print("Collided with Asteroid");
+            player.TakeDamage(player.HP / 2);
+            Destroy(other.gameObject);
         }
 
         if(other.collider.tag == "enemy/kamikaze")
         {
-            GameManager.gm.playerHealth.DamageHealth(GameManager.gm.playerHealth._Health / 2);
-            Destroy(other.collider.gameObject);
+            player.TakeDamage(player.HP / 2);
+            Destroy(other.gameObject);
             print("Collided with kamikaze Enemy");
         }
     }

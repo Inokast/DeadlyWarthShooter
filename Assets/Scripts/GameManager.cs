@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     bool gameOver;
     int score;
     int lives;
-    public Health playerHealth;
 
     public int Score
     {
@@ -58,9 +57,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        playerHealth = new Health();
-
-        playerHealth._Health = 20;
         Lives = 3;
     }
 
@@ -71,8 +67,6 @@ public class GameManager : MonoBehaviour
             paused = !paused;
             PauseGame();
         }
-
-        HandleHealth();
     }
 
     void PauseGame()
@@ -91,19 +85,6 @@ public class GameManager : MonoBehaviour
     public void IncrementScore()
     {
         Score += 10;    //to be replaced by a value as specified per individual enemies- T.E.
-    }
-
-    public void HandleHealth()
-    {
-        if (playerHealth._Health == 0)
-        {
-            DecrementLives();
-
-            if (!gameOver)
-            {
-                playerHealth._Health = 20;
-            }
-        }
     }
 
     public void IncrementLives()

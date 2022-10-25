@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - enemy/normal
+  - projectile/missile
+  - projectile/bolt
+  - enemy/kamikaze
+  - Asteroid
+  - Boss
   layers:
   - Default
   - TransparentFX
