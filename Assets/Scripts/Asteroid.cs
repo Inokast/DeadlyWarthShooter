@@ -51,8 +51,19 @@ public class Asteroid : MonoBehaviour
 
         if (asteroidHealthAmt <= 0)
         {
+            SpawnHealthObj();
             Destroy(gameObject);
             GameManager.gm.IncrementScore(scoreValue);
+        }
+    }
+
+    void SpawnHealthObj()
+    {
+        int chance = Random.Range(1, 6);
+
+        if(chance == 1)
+        {
+            //Instantiate();    --for spawning a health thingy where the asteroid was destroyed- T.E.
         }
     }
 }

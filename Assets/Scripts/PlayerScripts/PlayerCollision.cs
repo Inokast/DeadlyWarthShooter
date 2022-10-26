@@ -40,5 +40,13 @@ public class PlayerCollision : MonoBehaviour
             Destroy(other.gameObject);
             print("Collided with kamikaze Enemy");
         }
+
+        //for collecting health objects? -T.E.
+        if (other.gameObject.CompareTag("Health"))
+        {
+            player.RecoverHealth(10);
+            Destroy(other.gameObject);
+            Debug.Log("Collected health");
+        }
     }
 }

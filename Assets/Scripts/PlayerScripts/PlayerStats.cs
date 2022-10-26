@@ -29,14 +29,6 @@ public class PlayerStats : MonoBehaviour
     }
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //playerHealth = new Health();
-        //playerHealth._Health = hp;
-        //playerHealth._healthMax = hpMax;
-    }
-
     public void TakeDamage(int amount) 
     {
         HP = HP - amount;
