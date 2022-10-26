@@ -105,5 +105,10 @@ public class GameManager : MonoBehaviour
     public void GameOver() 
     {
         //end game
+        if (gameOver)
+        {
+            //do game over things, then set gameOver to false
+            gameOver = false;
+        }
     }
 }

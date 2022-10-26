@@ -34,11 +34,13 @@ public class Asteroid : MonoBehaviour
         if (other.gameObject.tag == "projectile/bullet")
         {
             TakeDamage(other.gameObject.GetComponent<PlayerBullet>()._bulletpower);
+            Destroy(other.gameObject);
             GameManager.gm.IncrementScore(scoreValue);
         }
         if (other.gameObject.tag == "projectile/rocket")
         {
             TakeDamage(other.gameObject.GetComponent<PlayerBullet>()._bulletpower);
+            Destroy(other.gameObject);
             GameManager.gm.IncrementScore(scoreValue);
         }
     }
