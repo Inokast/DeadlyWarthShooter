@@ -57,26 +57,26 @@ public class GameBoundary : MonoBehaviour
         {
             if (a.transform.position.x < bounds[0])    //left bound
             {
-                float newXPos = player.position.x * -1 - offset;
-                player.position = new Vector2(newXPos, player.position.y);
+                float newXPos = a.transform.position.x * -1 - offset;
+                a.transform.position = new Vector2(newXPos, player.position.y);
             }
 
             if (a.transform.position.x > bounds[1])    //right bound
             {
-                float newXPos = player.position.x * -1 + offset;
-                player.position = new Vector2(newXPos, player.position.y);
+                float newXPos = a.transform.position.x * -1 + offset;
+                a.transform.position = new Vector2(newXPos, player.position.y);
             }
 
             if (a.transform.position.y > bounds[2])    //top bound
             {
-                float newYPos = player.position.y * -1 + offset;
-                player.position = new Vector2(player.position.x, newYPos);
+                float newYPos = a.transform.position.y * -1 + offset;
+                a.transform.position = new Vector2(player.position.x, newYPos);
             }
 
             if (a.transform.position.y < bounds[3])    //bottom bound
             {
-                float newYPos = player.position.y * -1 - offset;
-                player.position = new Vector2(player.position.x, newYPos);
+                float newYPos = a.transform.position.y * -1 - offset;
+                a.transform.position = new Vector2(player.position.x, newYPos);
             }
         }
     }
