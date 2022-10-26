@@ -22,7 +22,8 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        
+        menuPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     void Update()
@@ -67,6 +68,7 @@ public class UIManager : MonoBehaviour
         GameManager.gm.gameStarted = true;
         menuPanel.SetActive(false);
         Debug.Log("Let the games begin");
+        Time.timeScale = 1f;
     }
 
     public void OnMenuClick()

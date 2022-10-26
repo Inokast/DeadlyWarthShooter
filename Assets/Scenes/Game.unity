@@ -3730,6 +3730,7 @@ MonoBehaviour:
   bossSpawnPoint:
   - {fileID: 814579662}
   waveNum: 0
+  levelNum: 1
   numEnemies: 0
   enemySpeed: 2
   maxEnemies: 2
