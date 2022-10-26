@@ -25,6 +25,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] float shotRate;
     float nextShot;
     public Transform thisObject;
+    public AudioClip shootSFX;
+    public AudioClip deathSFX;
+    public AudioClip bossShootSFX;
+    public AudioClip bossDeathSFX;
 
 
     void Start()
@@ -73,10 +77,22 @@ public class Enemy : MonoBehaviour
 
         if (eHealthAmt <= 0)
         {
-            Destroy(gameObject);
+            if (this.gameObject.CompareTag("Boss"))
+            {
+                manager.bossAlive = false;
+                GameManager.gm.IncrementScore(scoreValue);
+                manager.EnemyChecker();
+                Destroy(gameObject);
+                Debug.Log("Boss is dead");
+
+            }
+            else    
             GameManager.gm.IncrementScore(scoreValue);
             manager.numEnemies--;
             manager.EnemyChecker();
+           // Debug.Log("enemy" + gameObject.name + "is dead");
+            Destroy(gameObject);
+            
         }
     }
 
