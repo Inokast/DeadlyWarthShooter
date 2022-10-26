@@ -298,8 +298,8 @@ MonoBehaviour:
   - {fileID: 279961198}
   - {fileID: 2130796560}
   arsenal:
-  - {fileID: 1462491551}
-  - {fileID: 8303633654380512924}
+  - {fileID: 1462491552}
+  - {fileID: 8303633654380512926}
 --- !u!1 &64028523
 GameObject:
   m_ObjectHideFlags: 0
@@ -3340,17 +3340,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8303633653064423024, guid: 46861d3dee658b94ca30518104a74d44, type: 3}
   m_PrefabInstance: {fileID: 8303633653884882926}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1462491551 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8303633653064423025, guid: 46861d3dee658b94ca30518104a74d44, type: 3}
-  m_PrefabInstance: {fileID: 8303633653884882926}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462491549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 903fb4e7c5659be4284333d1ec279d1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1462491552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3364,7 +3353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: BasicShooter
-  fireRate: 100
+  fireRate: 5
   bulletSpeed: 20
   bulletPrefab: {fileID: 5176879708802760505, guid: 1f4c51cc595bc914b87822219c7c49de, type: 3}
   firePoint: {fileID: 734306353}
@@ -3428,6 +3417,14 @@ PrefabInstance:
     - target: {fileID: 7845205068632434764, guid: 3352545a7fc4d9245ba6cdba94092ff3, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845205068632434767, guid: 3352545a7fc4d9245ba6cdba94092ff3, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845205068632434767, guid: 3352545a7fc4d9245ba6cdba94092ff3, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -3730,6 +3727,7 @@ MonoBehaviour:
   bossSpawnPoint:
   - {fileID: 814579662}
   waveNum: 0
+  levelNum: 1
   numEnemies: 0
   enemySpeed: 2
   maxEnemies: 2
@@ -4813,6 +4811,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicPlayerBullet
       objectReference: {fileID: 0}
+    - target: {fileID: 8474221426669155035, guid: 1f4c51cc595bc914b87822219c7c49de, type: 3}
+      propertyPath: m_Size.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474221426669155035, guid: 1f4c51cc595bc914b87822219c7c49de, type: 3}
+      propertyPath: m_Size.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474221426669155035, guid: 1f4c51cc595bc914b87822219c7c49de, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f4c51cc595bc914b87822219c7c49de, type: 3}
@@ -4931,7 +4941,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6737703097695044946, guid: 5686c3b97553ba44bb0a0537cdc53921, type: 3}
+      propertyPath: fireRate
+      value: 20
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3367935597305647935, guid: 5686c3b97553ba44bb0a0537cdc53921, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5686c3b97553ba44bb0a0537cdc53921, type: 3}
 --- !u!1001 &7845205068942469097
@@ -4994,10 +5009,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7845205068632434764, guid: 24585ab32b43a35458bad0bb249e574b, type: 3}
-      propertyPath: m_TagString
-      value: enemy/normal
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 24585ab32b43a35458bad0bb249e574b, type: 3}
@@ -5057,22 +5068,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicShooter
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8303633653064423025, guid: 46861d3dee658b94ca30518104a74d44, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 46861d3dee658b94ca30518104a74d44, type: 3}
---- !u!114 &8303633654380512924 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3367935597305647935, guid: 5686c3b97553ba44bb0a0537cdc53921, type: 3}
-  m_PrefabInstance: {fileID: 6737703095840511395}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 903fb4e7c5659be4284333d1ec279d1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8303633654380512925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3367935597305647934, guid: 5686c3b97553ba44bb0a0537cdc53921, type: 3}
   m_PrefabInstance: {fileID: 6737703095840511395}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8303633654380512926 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6737703097695044946, guid: 5686c3b97553ba44bb0a0537cdc53921, type: 3}
+  m_PrefabInstance: {fileID: 6737703095840511395}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84196ec3edf72de44bb8f78f622f680c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -8,14 +8,14 @@ public class Weapon : MonoBehaviour
     public string weaponName;
     public int fireRate = 100;
     public float bulletSpeed = 3;
-    float nextShot;
+    private bool canShoot = true;
     public GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     public bool unlocked = false;
 
     public virtual void ShootWeapon() 
     {
-        if (Time.time > nextShot) 
+        if (canShoot == true) 
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -24,8 +24,14 @@ public class Weapon : MonoBehaviour
             Vector2 force = firePoint.up * bulletSpeed * 10;
 
             rb.AddForce(force, ForceMode2D.Impulse);
+            canShoot = false;
+            StartCoroutine(Cooldown());
+        }
 
-            nextShot = Time.time + 1f / fireRate;
+        IEnumerator Cooldown() 
+        {
+            yield return new WaitForSeconds(1 / fireRate);
+            canShoot = true;
         }
     }
 }

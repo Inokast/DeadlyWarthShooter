@@ -93,19 +93,20 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         //changed tags here to "bullet" and "rocket" to avoid weird null ref exception error
         //-- my theory is that this was checked the same way the player collision is for the same tag name, hence the error
-        if (other.collider.tag == "projectile/bullet" )
+        if (other.gameObject.tag == "projectile/bullet" )
         {
             Destroy(other.gameObject);
             TakeDamage(other.gameObject.GetComponent<PlayerBullet>()._bulletpower);            
         }
-        if (other.collider.tag == "projectile/rocket")
+        if (other.gameObject.tag == "projectile/rocket")
         {
             TakeDamage(other.gameObject.GetComponent<PlayerBullet>()._bulletpower);
             Destroy(other.gameObject);
         }
     }
+
 }
