@@ -11,6 +11,7 @@ public class Asteroid : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] float xSpeed, ySpeed;
     [SerializeField] int scoreValue;
+    [SerializeField] float asteroidHealthAmt;
 
 
     void Start()
@@ -32,10 +33,21 @@ public class Asteroid : MonoBehaviour
     {
         if (other.collider.tag == "projectile/bullet")
         {
-            Destroy(gameObject);
+            TakeDamage(other.gameObject.GetComponent<PlayerBullet>()._bulletpower);
             GameManager.gm.IncrementScore(scoreValue);
         }
         if (other.collider.tag == "projectile/rocket")
+        {
+            TakeDamage(other.gameObject.GetComponent<PlayerBullet>()._bulletpower);
+            GameManager.gm.IncrementScore(scoreValue);
+        }
+    }
+
+    void TakeDamage(float amount)
+    {
+        asteroidHealthAmt -= amount;
+
+        if (asteroidHealthAmt <= 0)
         {
             Destroy(gameObject);
             GameManager.gm.IncrementScore(scoreValue);

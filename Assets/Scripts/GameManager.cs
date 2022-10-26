@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         if (paused == true)
         {
             Time.timeScale = 0f;
-            Debug.Log("Game is paused");
+            //Debug.Log("Game is paused");
         }
         else
         {
