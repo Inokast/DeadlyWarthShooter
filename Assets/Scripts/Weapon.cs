@@ -6,7 +6,7 @@ using UnityEngine.Sprites;
 public class Weapon : MonoBehaviour
 {
     public string weaponName;
-    public int fireRate = 100;
+    public float fireRate = 5;
     public float bulletSpeed = 3;
     private bool canShoot = true;
     public GameObject bulletPrefab;

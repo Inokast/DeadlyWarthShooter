@@ -10,31 +10,31 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] private PlayerStats player;
 
     // Start is called before the first frame update
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         //changed tag names and damage method for testing- T.E.
-        if (other.collider.tag == "projectile/missile") 
+        if (other.gameObject.tag == "projectile/missile") 
         {
             print("Collided with Enemy projectile");
             player.TakeDamage(other.gameObject.GetComponent<EnemyProjectile>().damageAmt);
             Destroy(other.gameObject);
         }
 
-        if (other.collider.tag == "projectile/bolt")
+        if (other.gameObject.tag == "projectile/bolt")
         {
             print("Collided with Enemy projectile");
             player.TakeDamage(other.gameObject.GetComponent<EnemyProjectile>().damageAmt);
             Destroy(other.gameObject);
         }
 
-        if (other.collider.tag == "Asteroid") 
+        if (other.gameObject.tag == "Asteroid") 
         {
             print("Collided with Asteroid");
             player.TakeDamage(player.HP / 2);
             Destroy(other.gameObject);
         }
 
-        if(other.collider.tag == "enemy/kamikaze")
+        if(other.gameObject.tag == "enemy/kamikaze")
         {
             player.TakeDamage(player.HP / 2);
             Destroy(other.gameObject);
