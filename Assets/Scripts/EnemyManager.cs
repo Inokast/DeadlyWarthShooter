@@ -19,10 +19,12 @@ public class EnemyManager : MonoBehaviour
     public int maxEnemies = 3;
     public bool waveComplete = false;
     public bool firstWave = true;
+    public bool bossAlive = false;
     // Start is called before the first frame update
     void Start()
     {
         EnemySpawn();
+        waveNum = 1;
     }
 
 
@@ -41,9 +43,10 @@ public class EnemyManager : MonoBehaviour
         if(waveNum == 5)
         {
             levelNum++;
+            
+            maxEnemies = levelNum+ 1;
             waveNum = 1;
-            maxEnemies = levelNum++;
-            bossNum++;
+            //bossNum++;
         }
     }
     public void WaveManager()
@@ -57,13 +60,13 @@ public class EnemyManager : MonoBehaviour
     }
     public void EnemyChecker()
     {
-        if (numEnemies <= 0)
+        if (numEnemies <= 0 && bossAlive == false)
         {
             Debug.Log("wave " + waveNum + " complete");
             // waveComplete = true;
             waveNum++;
             maxEnemies++;
-            Debug.Log("Max Enemies:" + maxEnemies);
+           // Debug.Log("Max Enemies:" + maxEnemies);
             LevelChecker();
             EnemySpawn();
 
@@ -75,16 +78,19 @@ public class EnemyManager : MonoBehaviour
     {
         for(int i = 0; i < maxEnemies; i++)
         {
-           Instantiate(basicEnemy[Random.Range(0, basicEnemy.Length)], enemySpawnPoints[Random.Range(0,enemySpawnPoints.Length)].transform);
+           Instantiate(basicEnemy[Random.Range(0, basicEnemy.Length)], enemySpawnPoints[i].transform);
             
             numEnemies++;
-            Debug.Log("Enemy" + i + "has been spawned");
+           // Debug.Log("Enemy" + i + "has been spawned");
             
         }
     }
     public void BossSpawn()
     {
-       Instantiate(bossEnemy[bossNum], bossSpawnPoint[0].transform);
+       Instantiate(bossEnemy[0], bossSpawnPoint[0].transform);
         Debug.Log("The boss has spawned");
+        bossAlive = true;
+        numEnemies++;
+        
     }
 }
