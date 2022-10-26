@@ -9,6 +9,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyManager manager;
+
     [Header("Base Values")]
     GameObject player;
     Rigidbody2D rb;
@@ -16,9 +17,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] float enemySpeed;
     [SerializeField] float disToPlayer = 1f;
     [SerializeField] float shootingRange;
+    [SerializeField] int scoreValue;
 
     [Header("Shooting Values")]
     [SerializeField] GameObject bolt;
+    [SerializeField] GameObject[] cannon;
     [SerializeField] float shotRate;
     float nextShot;
     public Transform thisObject;
@@ -64,16 +67,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void TakeDamage( float amount) 
+    private void TakeDamage(float amount) 
     {
-        eHealthAmt = eHealthAmt - amount;
+        eHealthAmt -= amount;
 
         if (eHealthAmt <= 0)
         {
-            
+            Destroy(gameObject);
+            GameManager.gm.IncrementScore(scoreValue);
             manager.numEnemies--;
             manager.EnemyChecker();
-            Destroy(this.gameObject);
         }
     }
 
@@ -81,21 +84,23 @@ public class Enemy : MonoBehaviour
     {
         if (Time.time > nextShot)
         {
-            GameObject boltClone;
-            boltClone = Instantiate(bolt, transform.position, Quaternion.identity);
-            nextShot = Time.time + 1f / shotRate;
+            foreach(GameObject c in cannon)
+            {
+                GameObject boltClone;
+                boltClone = Instantiate(bolt, c.transform.position, Quaternion.identity);
+                nextShot = Time.time + 1f / shotRate;
+            }
         }
     }
 
-    public void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         //changed tags here to "bullet" and "rocket" to avoid weird null ref exception error
         //-- my theory is that this was checked the same way the player collision is for the same tag name, hence the error
         if (other.collider.tag == "projectile/bullet" )
         {
             Destroy(other.gameObject);
-            TakeDamage(other.gameObject.GetComponent<PlayerBullet>()._bulletpower);
-            
+            TakeDamage(other.gameObject.GetComponent<PlayerBullet>()._bulletpower);            
         }
         if (other.collider.tag == "projectile/rocket")
         {

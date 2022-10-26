@@ -82,9 +82,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void IncrementScore()
+    public void IncrementScore(int val)
     {
-        Score += 10;    //to be replaced by a value as specified per individual enemies- T.E.
+        Score += val;
     }
 
     public void IncrementLives()

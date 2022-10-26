@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
 
     [Header("In-game Stats")]
     [SerializeField] TextMeshProUGUI playerHealth;
-    [SerializeField] TextMeshProUGUI enemyHealth;       //temporary (most likely to be replaced by a collection? for when enemies are present)- T.E.
+    [SerializeField] TextMeshProUGUI enemyHealth;
 
 
     void Start()

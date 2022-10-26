@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 4f478ea615e950847ae9de00489b4731, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9074b6fbafc496e429763335da48b872, type: 3}
   m_Color: {r: 0.2532254, g: 0.8, b: 0.16862746, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -183,6 +183,8 @@ MonoBehaviour:
   enemySpeed: 5
   disToPlayer: 0
   shootingRange: 0
+  scoreValue: 5
   bolt: {fileID: 5242791591933604377, guid: 3478ea72028c18648b7df7a48a6de34c, type: 3}
+  cannon: []
   shotRate: 0
   thisObject: {fileID: 7845205068632434755}
