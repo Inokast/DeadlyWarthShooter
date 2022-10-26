@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
             paused = !paused;
             PauseGame();
         }
+        GameOver(gameOver);
     }
 
     void PauseGame()
@@ -102,8 +103,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameOver() 
+    public void GameOver(bool over) 
     {
         //end game
+        if (over)
+        {
+            //do game over things, then set gameOver to false
+            gameOver = false;
+        }
     }
 }
