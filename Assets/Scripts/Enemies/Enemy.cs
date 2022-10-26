@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     public AudioClip deathSFX;
     public AudioClip bossShootSFX;
     public AudioClip bossDeathSFX;
+    AudioSource sfxAudio;
 
 
     void Start()
@@ -38,6 +39,7 @@ public class Enemy : MonoBehaviour
         nextShot = Time.time;
         thisObject.parent = null;
         manager = EnemyManager.FindObjectOfType<EnemyManager>();
+        sfxAudio = gameObject.GetComponent<AudioSource>();
 
     }
 
@@ -82,8 +84,10 @@ public class Enemy : MonoBehaviour
                 manager.bossAlive = false;
                 GameManager.gm.IncrementScore(scoreValue);
                 manager.EnemyChecker();
-                Destroy(gameObject);
                 Debug.Log("Boss is dead");
+                Destroy(gameObject);
+                sfxAudio.clip = bossDeathSFX;
+                sfxAudio.Play();
 
             }
             else    
@@ -92,6 +96,8 @@ public class Enemy : MonoBehaviour
             manager.EnemyChecker();
            // Debug.Log("enemy" + gameObject.name + "is dead");
             Destroy(gameObject);
+            sfxAudio.clip = deathSFX;
+            sfxAudio.Play();
             
         }
     }
@@ -105,6 +111,15 @@ public class Enemy : MonoBehaviour
                 GameObject boltClone;
                 boltClone = Instantiate(bolt, c.transform.position, Quaternion.identity);
                 nextShot = Time.time + 1f / shotRate;
+                if (this.gameObject.CompareTag("Boss"))
+                {
+                    sfxAudio.clip = bossShootSFX;
+                    sfxAudio.Play();
+                }
+                else
+                    sfxAudio.clip = shootSFX;
+                sfxAudio.Play();
+
             }
         }
     }

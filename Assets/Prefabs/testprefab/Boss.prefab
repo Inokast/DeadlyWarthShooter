@@ -292,7 +292,7 @@ MonoBehaviour:
   - {fileID: 2253113020713374457}
   shotRate: 0.5
   thisObject: {fileID: 7845205068632434755}
-  shootSFX: {fileID: 0}
-  deathSFX: {fileID: 0}
-  bossShootSFX: {fileID: 0}
-  bossDeathSFX: {fileID: 0}
+  shootSFX: {fileID: 8300000, guid: c55bc1d88bb8471479e09aec778e98a5, type: 3}
+  deathSFX: {fileID: 8300000, guid: f2365cae3110a534da02018fb6a60e42, type: 3}
+  bossShootSFX: {fileID: 8300000, guid: 9e7bc21ba9fe92c4aabdeb2361ed4106, type: 3}
+  bossDeathSFX: {fileID: 8300000, guid: f2365cae3110a534da02018fb6a60e42, type: 3}

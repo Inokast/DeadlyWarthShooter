@@ -28,11 +28,7 @@ public class EnemyManager : MonoBehaviour
     }
 
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        
-    }
+    
 
     public void LevelChecker()
     {
@@ -42,10 +38,12 @@ public class EnemyManager : MonoBehaviour
         }
         if(waveNum == 5)
         {
+            //numEnemies = 0;
             levelNum++;
             
-            maxEnemies = levelNum+ 1;
+            maxEnemies = levelNum + 1;
             waveNum = 1;
+            
             //bossNum++;
         }
     }
@@ -64,10 +62,11 @@ public class EnemyManager : MonoBehaviour
         {
             Debug.Log("wave " + waveNum + " complete");
             // waveComplete = true;
-            waveNum++;
             maxEnemies++;
+            waveNum++;
            // Debug.Log("Max Enemies:" + maxEnemies);
             LevelChecker();
+
             EnemySpawn();
 
 
@@ -78,10 +77,10 @@ public class EnemyManager : MonoBehaviour
     {
         for(int i = 0; i < maxEnemies; i++)
         {
-           Instantiate(basicEnemy[Random.Range(0, basicEnemy.Length)], enemySpawnPoints[i].transform);
+           Instantiate(basicEnemy[0], enemySpawnPoints[i].transform);
             
             numEnemies++;
-           // Debug.Log("Enemy" + i + "has been spawned");
+           Debug.Log("Enemy" + i + "has been spawned");
             
         }
     }
