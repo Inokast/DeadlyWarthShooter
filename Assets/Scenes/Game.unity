@@ -2249,6 +2249,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 7845205068632434764, guid: d3abfef85ccff274db8970744e66e20c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: d3abfef85ccff274db8970744e66e20c, type: 3}
@@ -3187,7 +3191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7845205068632434764, guid: 0a430196f2f7a554785492fbedc80d1a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -3423,7 +3427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7845205068632434764, guid: 3352545a7fc4d9245ba6cdba94092ff3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -3709,7 +3713,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicEnemy:
   - {fileID: 7845205068632434764, guid: 24585ab32b43a35458bad0bb249e574b, type: 3}
-  bossEnemy: []
+  bossEnemy:
+  - {fileID: 7845205068632434764, guid: d3abfef85ccff274db8970744e66e20c, type: 3}
   enemySpawnPoints:
   - {fileID: 265438708}
   - {fileID: 1766612885}
@@ -3722,7 +3727,8 @@ MonoBehaviour:
   - {fileID: 646942507}
   - {fileID: 1595086218}
   - {fileID: 1933525706}
-  bossSpawnPoint: []
+  bossSpawnPoint:
+  - {fileID: 814579662}
   waveNum: 0
   numEnemies: 0
   enemySpeed: 2
@@ -4986,7 +4992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7845205068632434764, guid: 24585ab32b43a35458bad0bb249e574b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7845205068632434764, guid: 24585ab32b43a35458bad0bb249e574b, type: 3}
       propertyPath: m_TagString

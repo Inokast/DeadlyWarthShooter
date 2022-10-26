@@ -12,7 +12,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] public GameObject[] enemySpawnPoints;
     [SerializeField] public GameObject[] bossSpawnPoint;
     [SerializeField]public int waveNum = 1;
-    private int levelNum = 1;
+    [SerializeField]private int levelNum = 1;
+    private int bossNum = 0;
     public int numEnemies = 0;
     public int enemySpeed = 2;
     public int maxEnemies = 3;
@@ -35,9 +36,14 @@ public class EnemyManager : MonoBehaviour
     {
         if(waveNum == 4)
         {
+            BossSpawn();
+        }
+        if(waveNum == 5)
+        {
             levelNum++;
             waveNum = 1;
             maxEnemies = levelNum++;
+            bossNum++;
         }
     }
     public void WaveManager()
@@ -78,7 +84,7 @@ public class EnemyManager : MonoBehaviour
     }
     public void BossSpawn()
     {
-       GameObject currentBoss = Instantiate(bossEnemy[waveNum], bossSpawnPoint[0].transform);
+       Instantiate(bossEnemy[bossNum], bossSpawnPoint[0].transform);
         Debug.Log("The boss has spawned");
     }
 }
