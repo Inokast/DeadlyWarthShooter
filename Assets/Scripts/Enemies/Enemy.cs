@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject bolt;
     [SerializeField] float shotRate;
     float nextShot;
+    public Transform thisObject;
 
 
     void Start()
@@ -28,6 +29,9 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         nextShot = Time.time;
+        thisObject.parent = null;
+        manager = EnemyManager.FindObjectOfType<EnemyManager>();
+
     }
 
     void FixedUpdate()
@@ -66,8 +70,10 @@ public class Enemy : MonoBehaviour
 
         if (eHealthAmt <= 0)
         {
+            
+            manager.numEnemies--;
+            manager.EnemyChecker();
             Destroy(this.gameObject);
-            //manager.numEnemies--;
         }
     }
 

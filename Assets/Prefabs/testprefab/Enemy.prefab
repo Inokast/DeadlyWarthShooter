@@ -185,3 +185,4 @@ MonoBehaviour:
   shootingRange: 6
   bolt: {fileID: 5242791591933604377, guid: 3478ea72028c18648b7df7a48a6de34c, type: 3}
   shotRate: 0.5
+  thisObject: {fileID: 7845205068632434755}

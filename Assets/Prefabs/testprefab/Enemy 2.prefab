@@ -178,9 +178,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a715cb94be05c4f8ff09f35ab75a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   eHealthAmt: 1
   enemySpeed: 5
   disToPlayer: 0
   shootingRange: 0
   bolt: {fileID: 5242791591933604377, guid: 3478ea72028c18648b7df7a48a6de34c, type: 3}
   shotRate: 0
+  thisObject: {fileID: 7845205068632434755}
