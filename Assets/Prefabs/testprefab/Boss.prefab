@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
-  eHealthAmt: 400
+  eHealthAmt: 300
   enemySpeed: 1
   disToPlayer: 9
   shootingRange: 12
@@ -292,3 +292,7 @@ MonoBehaviour:
   - {fileID: 2253113020713374457}
   shotRate: 0.5
   thisObject: {fileID: 7845205068632434755}
+  shootSFX: {fileID: 0}
+  deathSFX: {fileID: 0}
+  bossShootSFX: {fileID: 0}
+  bossDeathSFX: {fileID: 0}

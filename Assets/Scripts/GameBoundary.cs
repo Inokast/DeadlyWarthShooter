@@ -21,7 +21,15 @@ public class GameBoundary : MonoBehaviour
     void Update()
     {
         PlayerBoundsCheck();
-        AsteroidBoundsCheck();
+
+        try 
+        {
+            if (asteroid != null)
+            {
+                AsteroidBoundsCheck();
+            }
+        }
+        catch { Debug.Log("Error in bounds check for asteroid") ; }
     }
 
     void PlayerBoundsCheck()

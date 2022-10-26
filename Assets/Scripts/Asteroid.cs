@@ -29,14 +29,14 @@ public class Asteroid : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.collider.tag == "projectile/bullet")
+        if (other.gameObject.tag == "projectile/bullet")
         {
             TakeDamage(other.gameObject.GetComponent<PlayerBullet>()._bulletpower);
             GameManager.gm.IncrementScore(scoreValue);
         }
-        if (other.collider.tag == "projectile/rocket")
+        if (other.gameObject.tag == "projectile/rocket")
         {
             TakeDamage(other.gameObject.GetComponent<PlayerBullet>()._bulletpower);
             GameManager.gm.IncrementScore(scoreValue);
