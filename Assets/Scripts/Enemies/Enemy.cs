@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 //Assignment/Lab/Project: Arcade Game
-//Name: Talyn Epting
+//Name: Talyn Epting, (Daniel Sanchez, Steven Thompson)
 
 public class Enemy : MonoBehaviour
 {
@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] int scoreValue;
 
     [Header("Shooting Values")]
-    [SerializeField] GameObject bolt;
+    [SerializeField] GameObject projectile;
     [SerializeField] GameObject[] cannon;
     [SerializeField] float shotRate;
     float nextShot;
@@ -69,7 +69,7 @@ public class Enemy : MonoBehaviour
         else if(Vector2.Distance(transform.position, player.transform.position) <= disToPlayer)
         {
             rb.velocity = Vector2.zero;
-            Debug.Log("Enemy is engaging player");
+            //Debug.Log("Enemy is engaging player");
         }
     }
 
@@ -109,7 +109,7 @@ public class Enemy : MonoBehaviour
             foreach(GameObject c in cannon)
             {
                 GameObject boltClone;
-                boltClone = Instantiate(bolt, c.transform.position, Quaternion.identity);
+                boltClone = Instantiate(projectile, c.transform.position, Quaternion.identity);
                 nextShot = Time.time + 1f / shotRate;
                 if (this.gameObject.CompareTag("Boss"))
                 {
@@ -127,7 +127,7 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //changed tags here to "bullet" and "rocket" to avoid weird null ref exception error
-        //-- my theory is that this was checked the same way the player collision is for the same tag name, hence the error
+        //-- my theory is that this was checked the same way the player collision is for the same tag name, hence the error- T.E.
         if (other.gameObject.tag == "projectile/bullet" )
         {
             Destroy(other.gameObject);

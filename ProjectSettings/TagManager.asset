@@ -10,6 +10,9 @@ TagManager:
   - enemy/kamikaze
   - Asteroid
   - Boss
+  - projectile/rocket
+  - projectile/bullet
+  - Health
   layers:
   - Default
   - TransparentFX

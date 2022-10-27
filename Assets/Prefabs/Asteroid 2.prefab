@@ -140,3 +140,5 @@ MonoBehaviour:
   ySpeed: 0
   scoreValue: 1
   asteroidHealthAmt: 80
+  healthPickUp: {fileID: 156348934439878486, guid: e08c08bb5639fa940a969ed62197b854, type: 3}
+  deathTime: 25

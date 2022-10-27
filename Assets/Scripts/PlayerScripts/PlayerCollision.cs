@@ -15,21 +15,21 @@ public class PlayerCollision : MonoBehaviour
         //changed tag names and damage method for testing- T.E.
         if (other.gameObject.tag == "projectile/missile") 
         {
-            print("Collided with Enemy projectile");
+            //print("Collided with Enemy projectile");
             player.TakeDamage(other.gameObject.GetComponent<EnemyProjectile>().damageAmt);
             Destroy(other.gameObject);
         }
 
         if (other.gameObject.tag == "projectile/bolt")
         {
-            print("Collided with Enemy projectile");
+            //print("Collided with Enemy projectile");
             player.TakeDamage(other.gameObject.GetComponent<EnemyProjectile>().damageAmt);
             Destroy(other.gameObject);
         }
 
         if (other.gameObject.tag == "Asteroid") 
         {
-            print("Collided with Asteroid");
+            //print("Collided with Asteroid");
             player.TakeDamage(player.HP / 2);
             Destroy(other.gameObject);
         }
@@ -38,7 +38,7 @@ public class PlayerCollision : MonoBehaviour
         {
             player.TakeDamage(player.HP / 2);
             Destroy(other.gameObject);
-            print("Collided with kamikaze Enemy");
+            //print("Collided with kamikaze Enemy");
         }
 
         //for collecting health objects? -T.E.

@@ -2,15 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Assignment/Lab/Project: Arcade Game
+//Name: Daniel Sanchez
+
 public class Enlarger : MonoBehaviour
 {
     [SerializeField] private float growthGoal = 1;
     [SerializeField] private float growthTime = 1;
+    [SerializeField] float destructionTime;     //added for use with shields/asteroids?/other objects- T.E.
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(ScaleOverTime(growthTime));
+
+        //added for shield boss; still needs work- T.E.
+        GameObject shieldBoss = GameObject.Find("ShieldBoss");
+        if(gameObject.name == "shield")
+        {
+            gameObject.transform.SetParent(shieldBoss.transform);
+        }
     }
     IEnumerator ScaleOverTime(float time)
     {
@@ -26,7 +37,7 @@ public class Enlarger : MonoBehaviour
             yield return null;
         } while (currentTime <= time);
 
-        Destroy(gameObject);
+        Destroy(gameObject, destructionTime);
     }
 
     private void Update()
@@ -34,4 +45,15 @@ public class Enlarger : MonoBehaviour
         transform.Rotate(0,0,.2f);
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "projectile/bullet")
+        {
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.tag == "projectile/rocket")
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }
