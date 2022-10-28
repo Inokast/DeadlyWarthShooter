@@ -15,6 +15,8 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] public float boostPower = 100;
     [SerializeField] public float maxVelocity = 3;
 
+    [SerializeField] private HealthBar hpBar;
+
     //adding HP property for public access (in PlayerCollision) + data protection purposes- T.E.
     public int HP
     {
@@ -28,18 +30,25 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        hpBar.SetMaxHealth(hpMax);
+
+    }
 
     public void TakeDamage(int amount) 
     {
         HP = HP - amount;
         HP = Mathf.Clamp(HP, 0, hpMax);
         CheckHealth();
+        hpBar.SetHealth(hp);
     }
 
     public void RecoverHealth(int amount) 
     {
         HP = HP + amount;
         HP = Mathf.Clamp(HP, 0, hpMax);
+        hpBar.SetHealth(HP);
     }
 
     private void CheckHealth() 

@@ -34,6 +34,19 @@ public class PlayerShoot : MonoBehaviour
         }
     }
 
+    private void SwitchSlots() 
+    {
+
+        Weapon[] temp = { arsenal[1], arsenal[2], arsenal[3], arsenal[0] };
+        arsenal = temp;
+
+        for (int i = 0; i < arsenal.Length; i++)
+        {
+            arsenal[i].transform.position = arsenalSlot[i].position;
+            arsenal[i].transform.rotation = arsenalSlot[i].rotation;
+        }
+    }
+
     public void PickupWeapon(string name) 
     {
         switch (name)
@@ -49,7 +62,11 @@ public class PlayerShoot : MonoBehaviour
         if (Input.GetButtonDown("Fire1")) 
         {
             OnPlayerShoot();
-            //arsenal[0].ShootWeapon();
+        }
+
+        if (Input.GetKeyDown("x"))
+        {
+            SwitchSlots();
         }
     }
 }

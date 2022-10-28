@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float disToPlayer = 1f;
     [SerializeField] float shootingRange;
     [SerializeField] int scoreValue;
+    [SerializeField] private HealthBar hpBar;
 
     [Header("Shooting Values")]
     [SerializeField] GameObject projectile;
@@ -40,6 +41,7 @@ public class Enemy : MonoBehaviour
         thisObject.parent = null;
         manager = EnemyManager.FindObjectOfType<EnemyManager>();
         sfxAudio = gameObject.GetComponent<AudioSource>();
+        hpBar.SetMaxHealth(((int)eHealthAmt));
 
     }
 
@@ -76,6 +78,7 @@ public class Enemy : MonoBehaviour
     private void TakeDamage(float amount) 
     {
         eHealthAmt -= amount;
+        hpBar.SetHealth(((int)eHealthAmt));
 
         if (eHealthAmt <= 0)
         {
@@ -137,6 +140,16 @@ public class Enemy : MonoBehaviour
         {
             TakeDamage(other.gameObject.GetComponent<PlayerBullet>()._bulletpower);
             Destroy(other.gameObject);
+        }
+
+        
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "projectile/bomb")
+        {
+            TakeDamage(other.gameObject.GetComponent<PlayerBullet>()._bulletpower);
         }
     }
 
