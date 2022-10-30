@@ -42,22 +42,27 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            //GameManager.gm.playerHealth.DamageHealth(damageAmt);
             Destroy(gameObject);
-            //Debug.Log($"Hit {player.gameObject.name}, player's health is: {GameManager.gm.playerHealth._Health}");
+            Debug.Log($"Hit {player.gameObject.name}, player's health is: {player.GetComponent<PlayerStats>().HP}");
         }
     }
 
     //shoot towards player when instantiated
     void ShootAtTarget()
     {
-        targetDir = (player.position - transform.position).normalized * boltSpeed;
-        rb.velocity = new Vector2(targetDir.x, targetDir.y);
+        if(player != null)
+        {
+            targetDir = (player.position - transform.position).normalized * boltSpeed;
+            rb.velocity = new Vector2(targetDir.x, targetDir.y);
+        }
     }
 
     //this will literally seek out the player before its destruction-- could be for a missile type weapon?- T.E.
     void SeekTarget()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.position, boltSpeed * Time.deltaTime);
+        if(player != null)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.position, boltSpeed * Time.deltaTime);
+        }
     }
 }

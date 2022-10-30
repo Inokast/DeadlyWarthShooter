@@ -15,10 +15,10 @@ public class GameManager : MonoBehaviour
 {
     [Header("Basics")]
     public static GameManager gm;
-    public bool gameStarted, paused;
-    bool gameOver;
+    public bool paused, gameOver;
     int score;
     int lives;
+    GameObject player;
 
     public int Score
     {
@@ -57,6 +57,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         Lives = 3;
     }
 
@@ -94,21 +96,29 @@ public class GameManager : MonoBehaviour
 
     public void DecrementLives()
     {
+        player.SetActive(false);
         Lives--;
-
         if (Lives == 0)
         {
             gameOver = true;
         }
     }
 
-    public void GameOver() 
+    public IEnumerator GameOver(float overtime) 
     {
-        //end game
-        if (gameOver)
+        while (true)
         {
-            //do game over things, then set gameOver to false
-            gameOver = false;
+            if (gameOver)
+            {
+                yield return new WaitForSeconds(overtime);
+                gameOver = false;
+            }
         }
+    }
+
+    public IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(0);
     }
 }

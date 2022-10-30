@@ -11,19 +11,18 @@ public class UIManager : MonoBehaviour
     [Header("Menus and HUD")]
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI livesText;
+    [SerializeField] TextMeshProUGUI overText;
     [SerializeField] GameObject menuPanel;
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject optionsPanel;
-
-    [Header("In-game Stats")]
-    [SerializeField] TextMeshProUGUI playerHealth;
-    [SerializeField] TextMeshProUGUI enemyHealth;
 
 
     void Start()
     {
         menuPanel.SetActive(true);
         Time.timeScale = 0f;
+
+        overText.text = "";
     }
 
     void Update()
@@ -31,6 +30,12 @@ public class UIManager : MonoBehaviour
         ScoreUpdate();
         LivesUpdate();
         DisplayPause();
+
+        if (GameManager.gm.gameOver)
+        {
+            overText.text = "Game Over";
+            StartCoroutine(GameManager.gm.Restart());
+        }
     }
 
     void DisplayPause()
@@ -65,7 +70,6 @@ public class UIManager : MonoBehaviour
     //to be added to/refined later- T.E.
     public void OnPlayClick()
     {
-        GameManager.gm.gameStarted = true;
         menuPanel.SetActive(false);
         Debug.Log("Let the games begin");
         Time.timeScale = 1f;
