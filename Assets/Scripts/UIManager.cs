@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject menuPanel;
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject optionsPanel;
+    [SerializeField] GameObject instructionsPanel;
 
 
     void Start()
@@ -87,12 +88,26 @@ public class UIManager : MonoBehaviour
         if(optionsPanel != null && !optionsPanel.activeInHierarchy)
         {
             optionsPanel.SetActive(true);
-            Debug.Log("Showing options/help");
+            Debug.Log("Showing options");
         }
         else
         {
             optionsPanel.SetActive(false);
-            Debug.Log("Options/help off");
+            Debug.Log("Options off");
+        }
+    }
+
+    public void OnInstructionsClick()
+    {
+        if (instructionsPanel != null && !instructionsPanel.activeInHierarchy)
+        {
+            instructionsPanel.SetActive(true);
+            Debug.Log("Showing help");
+        }
+        else
+        {
+            instructionsPanel.SetActive(false);
+            Debug.Log("help off");
         }
     }
 
