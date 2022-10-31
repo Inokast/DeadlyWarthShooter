@@ -48,7 +48,14 @@ public class Enemy : MonoBehaviour
     {
         if(player != null)
         {
-            ChasePlayer();
+            if (!player.activeInHierarchy)
+            {
+                Retreat();
+            }
+            else if (player.activeInHierarchy)
+            {
+                ChasePlayer();
+            }
         }
     }
 
@@ -78,6 +85,18 @@ public class Enemy : MonoBehaviour
             rb.velocity = Vector2.zero;
             //Debug.Log("Enemy is engaging player");
         }
+    }
+    
+    void Retreat()
+    {
+        Vector3 toPlayer = transform.position - player.transform.position;
+        Vector3 newPos = transform.position + toPlayer;
+        transform.position = Vector2.MoveTowards(transform.position, newPos, enemySpeed * 2f * Time.deltaTime);
+
+        //make them turn around when running off
+        Vector3 facing = -player.transform.position + transform.position;
+        float angle = Mathf.Atan2(facing.y, facing.x) * Mathf.Rad2Deg;
+        rb.rotation = Mathf.Lerp(rb.rotation, angle, enemySpeed * Mathf.Rad2Deg);
     }
 
     private void TakeDamage(float amount) 
