@@ -16,6 +16,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] public float maxVelocity = 3;
 
     [SerializeField] private HealthBar hpBar;
+    [SerializeField] float respawnTime = 3f;
 
     //adding HP property for public access (in PlayerCollision) + data protection purposes- T.E.
     public int HP
@@ -33,7 +34,6 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         hpBar.SetMaxHealth(hpMax);
-
     }
 
     public void TakeDamage(int amount) 
@@ -61,6 +61,8 @@ public class PlayerStats : MonoBehaviour
 
     private void Respawn() 
     {
+        //testing an expansion of player death and respawning between here and GameManager- T.E. 
+        gameObject.SetActive(true);
         RecoverHealth(hpMax);
     }
 
@@ -69,14 +71,13 @@ public class PlayerStats : MonoBehaviour
         if (GameManager.gm.Lives > 0)
         {
             GameManager.gm.DecrementLives();
-            Respawn();
+            Invoke(nameof(Respawn), respawnTime);
         }
 
-        else 
+        else
         {
-            GameManager.gm.GameOver();
+            StartCoroutine(GameManager.gm.GameOver(respawnTime));
         }
         print("The player has died");
     }
-
 }

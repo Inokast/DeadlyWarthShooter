@@ -11,20 +11,19 @@ public class UIManager : MonoBehaviour
     [Header("Menus and HUD")]
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI livesText;
+    [SerializeField] TextMeshProUGUI overText;
     [SerializeField] GameObject menuPanel;
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject optionsPanel;
-
-
-    [Header("In-game Stats")]
-    [SerializeField] TextMeshProUGUI playerHealth;
-    [SerializeField] TextMeshProUGUI enemyHealth;
+    [SerializeField] GameObject instructionsPanel;
 
 
     void Start()
     {
         menuPanel.SetActive(true);
         Time.timeScale = 0f;
+
+        overText.text = "";
     }
 
     void Update()
@@ -32,6 +31,12 @@ public class UIManager : MonoBehaviour
         ScoreUpdate();
         LivesUpdate();
         DisplayPause();
+
+        if (GameManager.gm.gameOver)
+        {
+            overText.text = "Game Over";
+            StartCoroutine(GameManager.gm.Restart());
+        }
     }
 
     void DisplayPause()
@@ -66,7 +71,6 @@ public class UIManager : MonoBehaviour
     //to be added to/refined later- T.E.
     public void OnPlayClick()
     {
-        GameManager.gm.gameStarted = true;
         menuPanel.SetActive(false);
         Debug.Log("Let the games begin");
         Time.timeScale = 1f;
@@ -84,12 +88,26 @@ public class UIManager : MonoBehaviour
         if(optionsPanel != null && !optionsPanel.activeInHierarchy)
         {
             optionsPanel.SetActive(true);
-            Debug.Log("Showing options/help");
+            Debug.Log("Showing options");
         }
         else
         {
             optionsPanel.SetActive(false);
-            Debug.Log("Options/help off");
+            Debug.Log("Options off");
+        }
+    }
+
+    public void OnInstructionsClick()
+    {
+        if (instructionsPanel != null && !instructionsPanel.activeInHierarchy)
+        {
+            instructionsPanel.SetActive(true);
+            Debug.Log("Showing help");
+        }
+        else
+        {
+            instructionsPanel.SetActive(false);
+            Debug.Log("help off");
         }
     }
 

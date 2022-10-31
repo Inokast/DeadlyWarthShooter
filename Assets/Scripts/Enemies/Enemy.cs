@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 //Assignment/Lab/Project: Arcade Game
 //Name: Talyn Epting, (Daniel Sanchez, Steven Thompson)
@@ -47,14 +46,20 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        ChasePlayer();
+        if(player != null)
+        {
+            ChasePlayer();
+        }
     }
 
     void Update()
     {
-        if (Vector2.Distance(transform.position, player.transform.position) <= shootingRange)
+        if(player != null && player.activeInHierarchy)
         {
-            ShootProjectile();
+            if (Vector2.Distance(transform.position, player.transform.position) <= shootingRange)
+            {
+                ShootProjectile();
+            }
         }
         // Dan Note: I felt like checking if the enemy was dead every frame was a bit much. I made TakeDamage() to check only when it has to take damage.
         Vector3 facing = player.transform.position - transform.position;
