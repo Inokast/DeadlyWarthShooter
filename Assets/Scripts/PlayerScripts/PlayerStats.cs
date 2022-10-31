@@ -76,7 +76,10 @@ public class PlayerStats : MonoBehaviour
 
         else
         {
-            StartCoroutine(GameManager.gm.GameOver(respawnTime));
+            if (!gameObject.activeInHierarchy)
+            {
+                StartCoroutine(GameManager.gm.GameOver(respawnTime));
+            }
         }
         print("The player has died");
     }

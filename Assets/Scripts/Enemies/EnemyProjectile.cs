@@ -33,6 +33,10 @@ public class EnemyProjectile : MonoBehaviour
         {
             SeekTarget();
         }
+        if (!player.gameObject.activeInHierarchy)
+        {
+            Destroy(gameObject);
+        }
 
         Destroy(gameObject, destroyTime);
     }

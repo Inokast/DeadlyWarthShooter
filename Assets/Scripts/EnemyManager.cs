@@ -77,7 +77,8 @@ public class EnemyManager : MonoBehaviour
     {
         for(int i = 0; i < maxEnemies; i++)
         {
-           Instantiate(basicEnemy[0], enemySpawnPoints[i].transform);
+            int enemyNum = Random.Range(0, basicEnemy.Length);
+           Instantiate(basicEnemy[enemyNum], enemySpawnPoints[i].transform);
             
             numEnemies++;
            Debug.Log("Enemy" + i + "has been spawned");

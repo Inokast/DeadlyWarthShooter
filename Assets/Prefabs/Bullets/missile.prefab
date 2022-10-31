@@ -136,6 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239fd9542d246d843bc3ddfa7537cbf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boltSpeed: 4
+  boltSpeed: 7
   destroyTime: 6
   damageAmt: 10
