@@ -88,19 +88,21 @@ public class Enemy : MonoBehaviour
                 GameManager.gm.IncrementScore(scoreValue);
                 manager.EnemyChecker();
                 Debug.Log("Boss is dead");
-                Destroy(gameObject);
                 sfxAudio.clip = bossDeathSFX;
                 sfxAudio.Play();
+                Destroy(gameObject);
+                
 
             }
             else    
             GameManager.gm.IncrementScore(scoreValue);
             manager.numEnemies--;
             manager.EnemyChecker();
-           // Debug.Log("enemy" + gameObject.name + "is dead");
-            Destroy(gameObject);
             sfxAudio.clip = deathSFX;
             sfxAudio.Play();
+            // Debug.Log("enemy" + gameObject.name + "is dead");
+            Destroy(gameObject);
+            
             
         }
     }

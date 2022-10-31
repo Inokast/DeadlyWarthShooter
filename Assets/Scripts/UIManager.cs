@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject optionsPanel;
 
+
     [Header("In-game Stats")]
     [SerializeField] TextMeshProUGUI playerHealth;
     [SerializeField] TextMeshProUGUI enemyHealth;

@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     bool gameOver;
     int score;
     int lives;
+    AudioSource sfxAudio;
 
     public int Score
     {
