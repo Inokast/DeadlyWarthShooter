@@ -15,13 +15,6 @@ public class Enlarger : MonoBehaviour
     void Start()
     {
         StartCoroutine(ScaleOverTime(growthTime));
-
-        //added for shield boss; still needs work- T.E.
-        GameObject shieldBoss = GameObject.Find("ShieldBoss");
-        if(gameObject.name == "shield")
-        {
-            gameObject.transform.SetParent(shieldBoss.transform);
-        }
     }
     IEnumerator ScaleOverTime(float time)
     {

@@ -37,7 +37,7 @@ public class PlayerCollision : MonoBehaviour
         if(other.gameObject.tag == "enemy/kamikaze")
         {
             player.TakeDamage(player.HP / 2);
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<Enemy>().TakeDamage(100);
             //print("Collided with kamikaze Enemy");
         }
 

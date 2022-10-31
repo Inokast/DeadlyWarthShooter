@@ -137,5 +137,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boltSpeed: 7
-  destroyTime: 6
+  destroyTime: 4
   damageAmt: 10

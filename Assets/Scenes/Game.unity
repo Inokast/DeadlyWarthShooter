@@ -11793,7 +11793,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3515418270802533278, guid: 869e6ba73a09a2942bea566a57d507b2, type: 3}
       propertyPath: generationTime
-      value: 20
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710005442100254768, guid: 869e6ba73a09a2942bea566a57d507b2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710005442100254768, guid: 869e6ba73a09a2942bea566a57d507b2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7845205068632434755, guid: 869e6ba73a09a2942bea566a57d507b2, type: 3}
       propertyPath: m_RootOrder
@@ -21941,6 +21949,7 @@ MonoBehaviour:
   basicEnemy:
   - {fileID: 7845205068632434764, guid: 24585ab32b43a35458bad0bb249e574b, type: 3}
   - {fileID: 7845205068632434764, guid: 3352545a7fc4d9245ba6cdba94092ff3, type: 3}
+  - {fileID: 7845205068632434764, guid: 0a430196f2f7a554785492fbedc80d1a, type: 3}
   bossEnemy:
   - {fileID: 7845205068632434764, guid: d3abfef85ccff274db8970744e66e20c, type: 3}
   - {fileID: 7845205068632434764, guid: ba354fd18bca0904198d318180ef6d7d, type: 3}

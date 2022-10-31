@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
-  eHealthAmt: 20
+  eHealthAmt: 80
   enemySpeed: 3
   disToPlayer: 5
   shootingRange: 15

@@ -99,7 +99,7 @@ public class Enemy : MonoBehaviour
         rb.rotation = Mathf.Lerp(rb.rotation, angle, enemySpeed * Mathf.Rad2Deg);
     }
 
-    private void TakeDamage(float amount) 
+    public void TakeDamage(float amount) 
     {
         eHealthAmt -= amount;
         hpBar.SetHealth(((int)eHealthAmt));
