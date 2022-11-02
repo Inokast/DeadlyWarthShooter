@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
     public bool paused, gameOver;
     int score;
-    int lives;
+    [SerializeField] int lives;
     GameObject player;
 
     public int Score
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
 
-        Lives = 3;
+        //Lives = 3;
     }
 
     void Update()

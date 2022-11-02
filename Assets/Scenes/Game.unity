@@ -1521,6 +1521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paused: 0
   gameOver: 0
+  lives: 3
 --- !u!4 &64028526
 Transform:
   m_ObjectHideFlags: 0
@@ -21969,6 +21970,7 @@ MonoBehaviour:
   - {fileID: 814579662}
   waveNum: 0
   levelNum: 1
+  bossNum: 2
   numEnemies: 0
   enemySpeed: 2
   maxEnemies: 2

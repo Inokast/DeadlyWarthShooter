@@ -32,7 +32,7 @@ public class EnemyManager : MonoBehaviour
 
     public void LevelChecker()
     {
-        if(bossNum >= 3)
+        if(bossNum >= 2)
         {
             bossNum = 0;
         }
@@ -81,7 +81,7 @@ public class EnemyManager : MonoBehaviour
     {
         for(int i = 0; i < maxEnemies; i++)
         {
-           Instantiate(basicEnemy[Random.RandomRange(0,basicEnemy.Length)], enemySpawnPoints[i].transform);
+           Instantiate(basicEnemy[Random.Range(0,basicEnemy.Length)], enemySpawnPoints[i].transform);
             
             numEnemies++;
            Debug.Log("Enemy" + i + "has been spawned");

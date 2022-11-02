@@ -8,12 +8,12 @@ public class Weapon : MonoBehaviour
     public string weaponName;
     public float fireRate = 5;
     public float bulletSpeed = 3;
-    private bool canShoot = true;
+    public bool canShoot = true;
     public GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
-    public bool unlocked = false;
 
-    public virtual void ShootWeapon() 
+    
+    public  void ShootWeapon() 
     {
         if (canShoot == true) 
         {

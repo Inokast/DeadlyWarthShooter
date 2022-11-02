@@ -13,60 +13,65 @@ public class PlayerShoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < arsenal.Length; i++)
-        {
-            arsenal[i].transform.position = arsenalSlot[i].position;
-            arsenal[i].transform.rotation = arsenalSlot[i].rotation;
-        }
+        AssignSlots();
     }
 
+    public void AssignSlots() 
+    {
+        if (gameObject.activeInHierarchy)
+        {
+            for (int i = 0; i < arsenal.Length; i++)
+            {
+                arsenal[i].transform.position = arsenalSlot[i].position;
+                arsenal[i].transform.rotation = arsenalSlot[i].rotation;
+            }
+        }
 
+        
+    }
 
     private void OnPlayerShoot() 
     {
-        foreach (Weapon w in arsenal)
+        if (gameObject.activeInHierarchy) 
         {
-            if (w.unlocked == true) 
+            foreach (Weapon w in arsenal)
             {
                 w.ShootWeapon();
             }
-            
         }
+            
     }
 
     private void SwitchSlots() 
     {
-
-        Weapon[] temp = { arsenal[1], arsenal[2], arsenal[3], arsenal[0] };
-        arsenal = temp;
-
-        for (int i = 0; i < arsenal.Length; i++)
+        if (gameObject.activeInHierarchy) 
         {
-            arsenal[i].transform.position = arsenalSlot[i].position;
-            arsenal[i].transform.rotation = arsenalSlot[i].rotation;
+            Weapon[] temp = { arsenal[1], arsenal[2], arsenal[3], arsenal[0] };
+            arsenal = temp;
+
+            AssignSlots();
         }
+
+      
     }
 
-    public void PickupWeapon(string name) 
-    {
-        switch (name)
-        {
-            default:
-                break;
-        }
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) 
+        if (gameObject.activeInHierarchy) 
         {
-            OnPlayerShoot();
-        }
+            if (Input.GetButtonDown("Fire1"))
+            {
+                OnPlayerShoot();
+            }
 
-        if (Input.GetKeyDown("x"))
-        {
-            SwitchSlots();
+            if (Input.GetKeyDown("x"))
+            {
+                SwitchSlots();
+            }
         }
+            
     }
 }

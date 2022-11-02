@@ -64,6 +64,13 @@ public class PlayerStats : MonoBehaviour
         //testing an expansion of player death and respawning between here and GameManager- T.E. 
         gameObject.SetActive(true);
         RecoverHealth(hpMax);
+        PlayerShoot shoot = GetComponent<PlayerShoot>();
+        shoot.AssignSlots();
+
+        foreach (Weapon w in shoot.arsenal)
+        {
+            w.canShoot = true;
+        }
     }
 
     private void PlayerDeath() 
