@@ -110,6 +110,7 @@ public class Enemy : MonoBehaviour
             {
                 manager.bossAlive = false;
                 GameManager.gm.IncrementScore(scoreValue);
+                manager.bossNum++;
                 manager.EnemyChecker();
                 Debug.Log("Boss is dead");
                 sfxAudio.clip = bossDeathSFX;

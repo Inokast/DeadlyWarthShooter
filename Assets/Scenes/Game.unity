@@ -22527,7 +22527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmMixer: {fileID: 24100000, guid: 3a99e6012bc732449b29588d575ea7aa, type: 2}
-  sfxMixer: {fileID: 0}
+  sfxMixer: {fileID: 24100000, guid: 16b0baa2ddeee5b47a52a6041e113518, type: 2}
 --- !u!114 &1742311363
 MonoBehaviour:
   m_ObjectHideFlags: 0
