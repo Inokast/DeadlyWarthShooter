@@ -20,19 +20,29 @@ public class EnemyManager : MonoBehaviour
     public bool waveComplete = false;
     public bool firstWave = true;
     public bool bossAlive = false;
+    //float timer = 0;
+   public  bool timerDone = true;
     // Start is called before the first frame update
     void Start()
     {
         EnemySpawn();
         waveNum = 1;
+        
+        
     }
 
 
-    
+    private void Update()
+    {
+        if (timerDone == false)
+        {
+            StartCoroutine(WaveWaiter());
+        }
+    }
 
     public void LevelChecker()
     {
-        if(bossNum >= 3)
+        if(bossNum >= 2)
         {
             bossNum = 0;
         }
@@ -59,6 +69,20 @@ public class EnemyManager : MonoBehaviour
         
         
        
+    }
+   public IEnumerator WaveWaiter()
+    {
+        yield return new WaitForSeconds(5);
+        
+        
+            Debug.Log("done waiting");
+            EnemyChecker();
+        timerDone = true;
+        //yield return new WaitForSeconds(2);
+        
+
+        
+
     }
     public void EnemyChecker()
     {

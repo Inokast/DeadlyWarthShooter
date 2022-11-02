@@ -108,29 +108,43 @@ public class Enemy : MonoBehaviour
         {
             if (this.gameObject.CompareTag("Boss"))
             {
+                sfxAudio.clip = bossDeathSFX;
+                sfxAudio.Play();
                 manager.bossAlive = false;
                 GameManager.gm.IncrementScore(scoreValue);
                 manager.bossNum++;
-                manager.EnemyChecker();
+                // manager.EnemyChecker();
+                if (manager.numEnemies <= 0 && manager.timerDone == true)
+                {
+                    manager.timerDone = false;
+                }
                 Debug.Log("Boss is dead");
-                sfxAudio.clip = bossDeathSFX;
-                sfxAudio.Play();
+                
                 Destroy(gameObject);
+                
                 
 
             }
-            else    
+            else
+                sfxAudio.clip = deathSFX;
+            sfxAudio.Play();
             GameManager.gm.IncrementScore(scoreValue);
             manager.numEnemies--;
-            manager.EnemyChecker();
-            sfxAudio.clip = deathSFX;
-            sfxAudio.Play();
+            // manager.EnemyChecker();
+            
+            if (manager.numEnemies <=0 && manager.timerDone == true)
+            {
+                manager.timerDone = false;
+            }
+            
+         
             // Debug.Log("enemy" + gameObject.name + "is dead");
             Destroy(gameObject);
             
             
         }
     }
+    
 
     void ShootProjectile()
     {
