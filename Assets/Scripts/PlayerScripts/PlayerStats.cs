@@ -80,14 +80,6 @@ public class PlayerStats : MonoBehaviour
             GameManager.gm.DecrementLives();
             Invoke(nameof(Respawn), respawnTime);
         }
-
-        else
-        {
-            if (!gameObject.activeInHierarchy)
-            {
-                StartCoroutine(GameManager.gm.GameOver(respawnTime));
-            }
-        }
         print("The player has died");
     }
 }

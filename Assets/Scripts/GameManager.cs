@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
     public bool paused, gameOver;
     int score;
-    [SerializeField] int lives;
+    int lives;
     GameObject player;
 
     public int Score
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
 
-        //Lives = 3;
+        Lives = 3;
     }
 
     void Update()
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
         {
             if (gameOver)
             {
-                yield return new WaitForSeconds(overtime);
+                yield return new WaitForSeconds(3f);
                 gameOver = false;
             }
         }
